@@ -95,6 +95,7 @@ class LSTMbaseline(NERmodel):
 
 		drop = self.get_droppro()
 		self.set_droppro(0.)
+		#这里的x本身是一个标量,在预测的时候需要时将它转为一个向量[x],变成向量
 		tags, logp = self.evafunc(x)
 		self.set_droppro(drop)
 		
