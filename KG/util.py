@@ -1,11 +1,12 @@
+#encoding=utf-8
 import theano.tensor as T
 import theano
 import numpy as np
 import random
-
+#这里的dtype改为了 double表示64位的数据，否则在train的时候不一致，这个必须改掉
 def shared32(x, name=None, borrow=False):
 
-    return theano.shared(np.asarray(x, dtype='float32'), name=name, borrow=borrow)
+    return theano.shared(np.asarray(x, dtype='double'), name=name, borrow=borrow)
 
 def computePR(tagdic, gold, predict):# gold and predict are a list of tag sequences
     
